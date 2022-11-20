@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 const Diary = () => {
     const { id } = useParams();
-
+    //id 를 꺼내쓰자
     return (
         <div>
             <h1>Diary</h1>

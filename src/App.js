@@ -9,11 +9,17 @@ import Diary from "./pages/Diary";
 
 // COMPONENTS
 import MyButton from "./components/MyButton";
+import MyHeader from "./components/MyHeader";
 
 function App() {
     return (
         <BrowserRouter>
             <div className="App">
+                <MyHeader
+                    headText={"app.js"}
+                    leftChild={<MyButton text={"왼쪽 버튼"} />}
+                    rightChild={<MyButton text={"오른쪽 버튼"} />}
+                />
                 <h2>app.js</h2>
                 <MyButton text="hi" type="POSITIVE" />
                 <MyButton text="hi" type="NEGATIVE" />
