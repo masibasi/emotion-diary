@@ -32,3 +32,33 @@ body {
     padding-left: 20px;
     padding-right: 20px;
 }
+
+/* MyButton */
+
+.MyButton {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    font-size: 18px;
+    white-space: nowrap;
+    font-family: "Yeon Sung", cursive;
+}
+
+.MyButton_default {
+    background-color: #ececec;
+    color: black;
+}
+.MyButton_POSITIVE {
+    background-color: #64c964;
+    color: white;
+}
+.MyButton_NEGATIVE {
+    background-color: #fd565f;
+    color: white;
+}

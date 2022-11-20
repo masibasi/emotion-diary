@@ -6,22 +6,26 @@ import Home from "./pages/Home";
 import New from "./pages/New";
 import Edit from "./pages/Edit";
 import Diary from "./pages/Diary";
-import RouteTest from "./components/RouteTest";
+
+// COMPONENTS
+import MyButton from "./components/MyButton";
 
 function App() {
     return (
         <BrowserRouter>
             <div className="App">
                 <h2>app.js</h2>
+                <MyButton text="hi" type="POSITIVE" />
+                <MyButton text="hi" type="NEGATIVE" />
+                <MyButton />
                 <Routes>
-                    <Route path="/home" element={<Home />} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/new" element={<New />} />
                     <Route path="/edit" element={<Edit />} />
                     <Route path="/diary/:id" element={<Diary />} />
                     // colon을 통해 id값을 전달 할 수있다. 대신 id를 무조건 받는
                     형식이다
                 </Routes>
-                <RouteTest />
             </div>
         </BrowserRouter>
     );
