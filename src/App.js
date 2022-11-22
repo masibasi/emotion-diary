@@ -79,7 +79,7 @@ function App() {
             type: "CREATE",
             data: {
                 id: dataId.current,
-                date: new Date(date).getTime,
+                date: new Date(date).getTime(),
                 content,
                 emotion,
             },
@@ -104,7 +104,9 @@ function App() {
     };
     return (
         <DiaryStateContext.Provider value={data}>
-            <DiaryDispatchContext.Provider value={(onCreate, onEdit, onRemove)}>
+            <DiaryDispatchContext.Provider
+                value={{ onCreate, onEdit, onRemove }}
+            >
                 <BrowserRouter>
                     <div className="App">
                         <Routes>
