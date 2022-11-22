@@ -16,6 +16,7 @@ const filterOptionList = [
 const ControlMenu = ({ value, onChange, optionList }) => {
     return (
         <select
+            className="ControlMenu"
             value={value}
             onChange={(e) => {
                 onChange(e.target.value);
@@ -62,22 +63,28 @@ const DiaryList = ({ diaryList }) => {
         return sortedList;
     };
     return (
-        <div>
-            <ControlMenu
-                value={sortType}
-                onChange={setSortType}
-                optionList={sortOptionList}
-            />
-            <ControlMenu
-                value={filter}
-                onChange={setFilter}
-                optionList={filterOptionList}
-            />
-            <MyButton
-                type={"POSITIVE"}
-                text={"새 일기쓰기"}
-                onClick={() => navigate("/new")}
-            />
+        <div className="DiaryList">
+            <div className="menu_wrapper">
+                <div className="left_col">
+                    <ControlMenu
+                        value={sortType}
+                        onChange={setSortType}
+                        optionList={sortOptionList}
+                    />
+                    <ControlMenu
+                        value={filter}
+                        onChange={setFilter}
+                        optionList={filterOptionList}
+                    />
+                </div>
+                <div className="right_col">
+                    <MyButton
+                        type={"POSITIVE"}
+                        text={"새 일기쓰기"}
+                        onClick={() => navigate("/new")}
+                    />
+                </div>
+            </div>
             {getProgressedDiaryList().map((it) => (
                 <div key={it.id}>
                     {it.content}, {it.emotion}
