@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Diary from "../pages/Diary";
+import MyButton from "./MyButton";
+import { useNavigate } from "react-router-dom";
 
 const sortOptionList = [
     { value: "latest", name: "최신순" },
@@ -30,6 +31,7 @@ const ControlMenu = ({ value, onChange, optionList }) => {
 };
 
 const DiaryList = ({ diaryList }) => {
+    const navigate = useNavigate();
     const [sortType, setSortType] = useState("latest");
     const [filter, setFilter] = useState("all");
 
@@ -70,6 +72,11 @@ const DiaryList = ({ diaryList }) => {
                 value={filter}
                 onChange={setFilter}
                 optionList={filterOptionList}
+            />
+            <MyButton
+                type={"POSITIVE"}
+                text={"새 일기쓰기"}
+                onClick={() => navigate("/new")}
             />
             {getProgressedDiaryList().map((it) => (
                 <div key={it.id}>
