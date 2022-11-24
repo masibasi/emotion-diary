@@ -23,7 +23,7 @@ const reducer = (state, action) => {
         }
         case "EDIT": {
             console.log(action.data);
-            newState = state.filter((it) =>
+            newState = state.map((it) =>
                 it.id === action.data.id ? { ...action.data } : it
             );
             break;
@@ -97,7 +97,7 @@ function App() {
             type: "EDIT",
             data: {
                 id: targetID,
-                date: new Date(date).getTime,
+                date: new Date(date).getTime(),
                 content,
                 emotion,
             },
