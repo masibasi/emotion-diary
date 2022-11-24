@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DiaryDispatchContext } from "../App";
 import EmotionItem from "./EmotionItem";
@@ -10,7 +10,7 @@ import MyHeader from "./MyHeader";
 const emotionList = [
     {
         emotion_id: 1,
-        emotion_img: process.env.PUBLIC_URL + `assets/emotion1.png`,
+        emotion_img: process.env.PUBLIC_URL + `./assets/emotion1.png`,
         emotion_descript: "great",
     },
     {
@@ -38,14 +38,14 @@ const getStringDate = (date) => {
     return date.toISOString().slice(0, 10);
 };
 
-const DiaryEditor = () => {
+const DiaryEditor = ({ isEdit, originData }) => {
     const navigate = useNavigate();
     const contentRef = useRef();
     const [content, setContent] = useState("");
     const [emotion, setEmotion] = useState(3);
     const [date, setDate] = useState(getStringDate(new Date()));
 
-    const { onCreate } = useContext(DiaryDispatchContext);
+    const { onCreate, onEdit } = useContext(DiaryDispatchContext);
     const handleClickEmote = (emotion) => {
         setEmotion(emotion);
     };
@@ -55,17 +55,31 @@ const DiaryEditor = () => {
             contentRef.current.focus();
             return;
         }
+        if (window.confirm(isEdit ? "Confirm edit?" : "Confirm your diary?")) {
+            if (!onEdit) {
+                onCreate(date, content, emotion);
+            } else {
+                onEdit(originData.id, date, content, emotion);
+            }
+        }
 
-        onCreate(date, content, emotion);
         navigate("/", { replace: true });
     };
+
+    useEffect(() => {
+        if (isEdit) {
+            setDate(getStringDate(new Date(parseInt(originData.date))));
+            setEmotion(originData.emotion);
+            setContent(originData.content);
+        }
+    }, [isEdit, originData]);
     return (
         <div className="DiaryEditor">
             <MyHeader
                 leftChild={
                     <MyButton text={"뒤로가기"} onClick={() => navigate(-1)} />
                 }
-                headText={"Write new Diary"}
+                headText={isEdit ? "Edit" : "Write new Diary"}
             />
             <div>
                 <section>

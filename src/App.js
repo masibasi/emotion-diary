@@ -22,6 +22,7 @@ const reducer = (state, action) => {
             break;
         }
         case "EDIT": {
+            console.log(action.data);
             newState = state.filter((it) =>
                 it.id === action.data.id ? { ...action.data } : it
             );
@@ -112,7 +113,7 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/new" element={<New />} />
-                            <Route path="/edit" element={<Edit />} />
+                            <Route path="/edit/:id" element={<Edit />} />
                             <Route path="/diary/:id" element={<Diary />} />
                             // colon을 통해 id값을 전달 할 수있다. 대신 id를
                             무조건 받는 형식이다
