@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, {
+    useCallback,
+    useContext,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 import { useNavigate } from "react-router-dom";
 import { DiaryDispatchContext } from "../App";
 import EmotionItem from "./EmotionItem";
@@ -22,9 +28,9 @@ const DiaryEditor = ({ isEdit, originData }) => {
     const [date, setDate] = useState(getStringDate(new Date()));
 
     const { onCreate, onEdit, onRemove } = useContext(DiaryDispatchContext);
-    const handleClickEmote = (emotion) => {
+    const handleClickEmote = useCallback((emotion) => {
         setEmotion(emotion);
-    };
+    }, []);
 
     const handleSubmit = () => {
         if (content.length < 1) {
@@ -62,7 +68,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
                 leftChild={
                     <MyButton text={"뒤로가기"} onClick={() => navigate(-1)} />
                 }
-                headText={isEdit ? "Edit" : "Write new Diary"}
+                headText={isEdit ? "Edit" : "NEW"}
                 rightChild={
                     isEdit && (
                         <MyButton
