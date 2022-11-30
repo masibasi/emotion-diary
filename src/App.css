@@ -291,3 +291,54 @@ header button {
     background-color: #fd565f;
     color: white;
 }
+
+/* Diary */
+
+.Diary {
+}
+
+.Diary section {
+    width: 100%;
+    margin-bottom: 100px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.Diary h4 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.Diary .diary_img_wrapper {
+    background-color: #ececec;
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Diary .emotion_descript {
+    font-size: 25px;
+}
+
+.Diary .diary_content_wrapper {
+    width: 100%;
+    background-color: #ececec;
+    border-radius: 5px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.Diary .diary_content_wrapper p {
+    padding: 20px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2.5;
+}

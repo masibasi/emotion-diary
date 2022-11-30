@@ -6,36 +6,11 @@ import EmotionItem from "./EmotionItem";
 //Components
 import MyButton from "./MyButton";
 import MyHeader from "./MyHeader";
+import { emotionList } from "../util/emotion";
 
-const emotionList = [
-    {
-        emotion_id: 1,
-        emotion_img: process.env.PUBLIC_URL + `./assets/emotion1.png`,
-        emotion_descript: "great",
-    },
-    {
-        emotion_id: 2,
-        emotion_img: process.env.PUBLIC_URL + `assets/emotion2.png`,
-        emotion_descript: "good",
-    },
-    {
-        emotion_id: 3,
-        emotion_img: process.env.PUBLIC_URL + `assets/emotion3.png`,
-        emotion_descript: "normal",
-    },
-    {
-        emotion_id: 4,
-        emotion_img: process.env.PUBLIC_URL + `assets/emotion4.png`,
-        emotion_descript: "bad",
-    },
-    {
-        emotion_id: 5,
-        emotion_img: process.env.PUBLIC_URL + `assets/emotion5.png`,
-        emotion_descript: "terrible",
-    },
-];
 const getStringDate = (date) => {
-    console.log(date.toISOString().slice(0, 10));
+    // console.log(date.toISOString().slice(0, 10));
+    // console.log(emotionList);
     return date.toISOString().slice(0, 10);
 };
 
@@ -57,7 +32,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
             return;
         }
         if (window.confirm(isEdit ? "Confirm edit?" : "Confirm your diary?")) {
-            if (!onEdit) {
+            if (!isEdit) {
                 onCreate(date, content, emotion);
             } else {
                 onEdit(originData.id, date, content, emotion);
