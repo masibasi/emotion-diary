@@ -6,6 +6,12 @@ import MyButton from "../components/MyButton";
 import MyHeader from "../components/MyHeader";
 
 const Home = () => {
+    //탭 이름을 바꾸는 코드.
+    useEffect(() => {
+        const titleElement = document.getElementsByTagName("title")[0];
+        titleElement.innerHTML = `LDC`;
+    }, []);
+
     const diaryList = useContext(DiaryStateContext);
 
     const [data, setData] = useState([]);

@@ -7,6 +7,12 @@ import { getStringDate } from "../util/date";
 import { emotionList } from "../util/emotion";
 
 const Diary = () => {
+    //탭 이름을 바꾸는 코드.
+    useEffect(() => {
+        const titleElement = document.getElementsByTagName("title")[0];
+        titleElement.innerHTML = `number${id}`;
+    }, []);
+
     const { id } = useParams();
     //id 를 꺼내쓰자
     const diaryList = useContext(DiaryStateContext);
@@ -30,6 +36,8 @@ const Diary = () => {
             (it) => parseInt(it.emotion_id) === parseInt(data.emotion)
         );
         console.log(curEmotionData.emotion_img);
+
+        localStorage.setItem("video", require("./video.mp4"));
         return (
             <div className="Diary">
                 <MyHeader
@@ -49,6 +57,12 @@ const Diary = () => {
                 />
                 <article>
                     <section>
+                        <video width="360" height="280" controls="controls">
+                            <source
+                                src={localStorage.getItem("video")}
+                                type="video/mp4"
+                            />
+                        </video>
                         <h4>오늘의 감정</h4>
                         <div className="diary_img_wrapper">
                             <img src={curEmotionData.emotion_img} />
