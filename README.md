@@ -1,4 +1,5 @@
-# React Simple Project
+# About
+React Simple Project
 This is a project of creating a React-based web diary application.
 You can simply record your diary based on emotion and date.
 The data is stored only in your device, in LocalHost.
