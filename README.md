@@ -16,6 +16,8 @@ Skills I have learned from this project :
 > - UseMemo, useCallback : Optimization
 > - UseReducer - Separating Complex State Management Logic
 
+Based on the course : https://www.udemy.com/course/winterlood-react-basic/
+
 ScreenShots :
 <img width="597" alt="image" src="https://user-images.githubusercontent.com/60805546/226336097-25a9df6c-6b1a-406d-98e0-7efb46efc02c.png">
 <img width="591" alt="image" src="https://user-images.githubusercontent.com/60805546/226336142-83de8978-af99-4619-8096-f158e94451f4.png">
